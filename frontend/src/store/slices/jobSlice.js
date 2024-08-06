@@ -104,7 +104,7 @@ const jobSlice = createSlice({
 });
 
 export const fetchJobs =
-  (city, niche, searchKeyword = "") =>
+  (city, category, searchKeyword = "") =>
   async (dispatch) => {
     try {
       dispatch(jobSlice.actions.requestForAllJobs());
@@ -116,8 +116,8 @@ export const fetchJobs =
       if (city) {
         queryParams.push(`city=${city}`);
       }
-      if (niche) {
-        queryParams.push(`niche=${niche}`);
+      if (category) {
+        queryParams.push(`category=${category}`);
       }
 
       link += queryParams.join("&");

@@ -10,8 +10,8 @@ import { Link } from "react-router-dom";
 const Jobs = () => {
   const [city, setCity] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
-  const [niche, setNiche] = useState("");
-  const [selectedNiche, setSelectedNiche] = useState("");
+  const [category, setCategory] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
   const [searchKeyword, setSearchKeyword] = useState("");
 
   const { jobs, loading, error } = useSelector((state) => state.jobs);
@@ -20,9 +20,9 @@ const Jobs = () => {
     setCity(city);
     setSelectedCity(city);
   };
-  const handleNicheChange = (niche) => {
-    setNiche(niche);
-    setSelectedNiche(niche);
+  const handleCategoryChange = (category) => {
+    setCategory(category);
+    setSelectedCategory(category);
   };
 
   const dispatch = useDispatch();
@@ -32,37 +32,25 @@ const Jobs = () => {
       toast.error(error);
       dispatch(clearAllJobErrors());
     }
-    dispatch(fetchJobs(city, niche, searchKeyword));
-  }, [dispatch, error, city, niche]);
+    dispatch(fetchJobs(city, category, searchKeyword));
+  }, [dispatch, error, city, category]);
 
   const handleSearch = () => {
-    dispatch(fetchJobs(city, niche, searchKeyword));
+    dispatch(fetchJobs(city, category, searchKeyword));
   };
 
   const cities = [
-    "Karachi",
-    "Lahore",
-    "Islamabad",
-    "Rawalpindi",
-    "Faisalabad",
-    "Multan",
+    "Delhi",
+    "Bangalore",
+    "Mumbai",
     "Hyderabad",
-    "Quetta",
-    "Peshawar",
-    "Sialkot",
-    "Gujranwala",
-    "Sargodha",
-    "Bahawalpur",
-    "Sukkur",
-    "Mardan",
-    "Mingora",
-    "Sheikhupura",
-    "Mandi Bahauddin",
-    "Larkana",
-    "Nawabshah",
+    "Gurugram",
+    "Pune",
+    "Chandigarh",
+    "Indore",
   ];
 
-  const nichesArray = [
+  const CategoriesArray = [
     "Software Development",
     "Web Development",
     "Cybersecurity",
@@ -119,18 +107,18 @@ const Jobs = () => {
                 ))}
               </div>
               <div className="cities">
-                <h2>Filter Job By Niche</h2>
-                {nichesArray.map((niche, index) => (
+                <h2>Filter Job By Category</h2>
+                {CategoriesArray.map((category, index) => (
                   <div key={index}>
                     <input
                       type="radio"
-                      id={niche}
-                      name="niche"
-                      value={niche}
-                      checked={selectedNiche === niche}
-                      onChange={() => handleNicheChange(niche)}
+                      id={category}
+                      name="category"
+                      value={category}
+                      checked={selectedCategory === category}
+                      onChange={() => handleCategoryChange(category)}
                     />
-                    <label htmlFor={niche}>{niche}</label>
+                    <label htmlFor={category}>{category}</label>
                   </div>
                 ))}
               </div>
@@ -146,13 +134,13 @@ const Jobs = () => {
                   ))}
                 </select>
                 <select
-                  value={niche}
-                  onChange={(e) => setNiche(e.target.value)}
+                  value={category}
+                  onChange={(e) => setCategory(e.target.value)}
                 >
-                  <option value="">Filter By Niche</option>
-                  {nichesArray.map((niche, index) => (
-                    <option value={niche} key={index}>
-                      {niche}
+                  <option value="">Filter By Category</option>
+                  {CategoriesArray.map((category, index) => (
+                    <option value={category} key={index}>
+                      {category}
                     </option>
                   ))}
                 </select>

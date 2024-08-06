@@ -242,8 +242,8 @@ const PostApplication = () => {
           </section>
           <hr />
           <footer>
-            <h3>Job Niche</h3>
-            <p>{singleJob.jobNiche}</p>
+            <h3>Job Category</h3>
+            <p>{singleJob.jobCategory}</p>
           </footer>
         </div>
       </article>

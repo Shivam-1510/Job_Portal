@@ -6,7 +6,9 @@ import { connection } from "./database/connection.js";
 import { errorMiddleware } from "./middlewares/error.js";
 import userRouter from "./routes/userRouter.js";
 import jobRouter from "./routes/jobRouter.js";
+import applicationRouter from "./routes/applicationRouter.js";
 import { v2 as cloudinary } from 'cloudinary';
+import {newsLetterCron} from "./automation/newsLetterCron.js";
 
 
 const app = express();
@@ -33,10 +35,17 @@ app.use(express.urlencoded({ extended: true }));
 
 
 
+app.use((err, req, res, next) => {
+  res.status(err.status || 500).json({
+    success: false,
+    message: err.message || 'Internal Server Error'
+  });
+});
 
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/job", jobRouter);
-
+app.use("/api/v1/application", applicationRouter);
+newsLetterCron();
 connection();
 app.use(errorMiddleware);
 

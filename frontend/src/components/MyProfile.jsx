@@ -26,26 +26,26 @@ const MyProfile = () => {
       </div>
       {user && user.role === "Job Seeker" && (
         <div>
-          <label>My Preferred Job Niches</label>
+          <label>My Preferred Job Categories</label>
           <div
             style={{ display: "flex", flexDirection: "column", gap: "15px" }}
           >
             <input
               type="text"
               disabled
-              value={user && user.niches.firstNiche}
+              value={user && user.category.firstCategory}
               onChange={(e) => e.target.value}
             />
             <input
               type="text"
               disabled
-              value={user && user.niches.secondNiche}
+              value={user && user.category.secondCategory}
               onChange={(e) => e.target.value}
             />
             <input
               type="text"
               disabled
-              value={user && user.niches.thirdNiche}
+              value={user && user.category.thirdCategory}
               onChange={(e) => e.target.value}
             />
           </div>

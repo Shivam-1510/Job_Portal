@@ -50,7 +50,7 @@ const MyJobs = () => {
                     {element.title}
                   </p>
                   <p className="sub-sec">
-                    <span>Job Niche:</span> {element.jobNiche}
+                    <span>Job Category:</span> {element.jobCategory}
                   </p>
                   <p className="sub-sec">
                     <span>Salary: </span> {element.salary}

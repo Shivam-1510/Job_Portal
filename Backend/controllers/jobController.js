@@ -1,6 +1,5 @@
 import { catchAsyncErrors } from "../middlewares/catchAsyncErrors.js";
 import ErrorHandler, { errorMiddleware } from "../middlewares/error.js";
-import { User } from "../models/userSchema.js";
 import { Job } from "../models/jobSchema.js";
 
 export const postJob = catchAsyncErrors(async (req, res, next) => {
@@ -97,7 +96,7 @@ export const getAllJobs = catchAsyncErrors(async(req,res,next) => {
     });
 });
 export const getMyJobs = catchAsyncErrors(async(req,res,next) => {
-    const myJobs = await Job.find({ poestedBy: req.user._id});
+    const myJobs = await Job.find({ postedBy: req.user._id});
     res.status(200).json({
         success: true,
         myJobs,
@@ -118,6 +117,16 @@ export const deleteJob = catchAsyncErrors(async(req,res,next) => {
         message: "Job deleted."
     });
 });
-export const getASingleJob = catchAsyncErrors(async(req,res,next) => {
+export const getASingleJob = catchAsyncErrors(async (req, res, next) => {
+  const { id } = req.params;
+  const job = await Job.findById(id);
 
+  if (!job) {
+    return next(new ErrorHandler("Job not found", 404));
+  }
+
+  res.status(200).json({
+    success: true,
+    job,
+  });
 });

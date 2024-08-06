@@ -18,13 +18,13 @@ const JobPost = () => {
   const [responsibilities, setResponsibilities] = useState("");
   const [qualifications, setQualifications] = useState("");
   const [offers, setOffers] = useState("");
-  const [jobNiche, setJobNiche] = useState("");
+  const [jobCategory, setJobCategory] = useState("");
   const [salary, setSalary] = useState("");
   const [hiringMultipleCandidates, setHiringMultipleCandidates] = useState("");
   const [personalWebsiteTitle, setPersonalWebsiteTitle] = useState("");
   const [personalWebsiteUrl, setPersonalWebsiteUrl] = useState("");
 
-  const nichesArray = [
+  const CategoriesArray = [
     "Software Development",
     "Web Development",
     "Cybersecurity",
@@ -48,26 +48,14 @@ const JobPost = () => {
   ];
 
   const cities = [
-    "Karachi",
-    "Lahore",
-    "Islamabad",
-    "Rawalpindi",
-    "Faisalabad",
-    "Multan",
+    "Delhi",
+    "Bangalore",
+    "Mumbai",
     "Hyderabad",
-    "Quetta",
-    "Peshawar",
-    "Sialkot",
-    "Gujranwala",
-    "Sargodha",
-    "Bahawalpur",
-    "Sukkur",
-    "Mardan",
-    "Mingora",
-    "Sheikhupura",
-    "Mandi Bahauddin",
-    "Larkana",
-    "Nawabshah",
+    "Gurugram",
+    "Pune",
+    "Chandigarh",
+    "Indore",
   ];
 
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -84,7 +72,7 @@ const JobPost = () => {
     formData.append("responsibilities", responsibilities);
     formData.append("qualifications", qualifications);
     offers && formData.append("offers", offers);
-    formData.append("jobNiche", jobNiche);
+    formData.append("jobCategory", jobCategory);
     formData.append("salary", salary);
     hiringMultipleCandidates &&
       formData.append("hiringMultipleCandidates", hiringMultipleCandidates);
@@ -187,10 +175,10 @@ const JobPost = () => {
         />
       </div>
       <div>
-        <label>Job Niche</label>
-        <select value={jobNiche} onChange={(e) => setJobNiche(e.target.value)}>
-          <option value="">Select Job Niche</option>
-          {nichesArray.map((element) => {
+        <label>Job Category</label>
+        <select value={jobCategory} onChange={(e) => setJobCategory(e.target.value)}>
+          <option value="">Select Job Category</option>
+          {CategoriesArray.map((element) => {
             return <option value={element}>{element}</option>;
           })}
         </select>

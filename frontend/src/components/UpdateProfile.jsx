@@ -22,11 +22,11 @@ const UpdateProfile = () => {
   const [phone, setPhone] = useState(user && user.phone);
   const [address, setAddress] = useState(user && user.address);
   const [coverLetter, setCoverLetter] = useState(user && user.coverLetter);
-  const [firstNiche, setFirstNiche] = useState(user && user.niches?.firstNiche);
-  const [secondNiche, setSecondNiche] = useState(
-    user && user.niches?.secondNiche
+  const [firstCategory, setFirstCategory] = useState(user && user.category?.firstCategory);
+  const [secondCategory, setSecondCategory] = useState(
+    user && user.category?.secondCategory
   );
-  const [thirdNiche, setThirdNiche] = useState(user && user.niches?.thirdNiche);
+  const [thirdCategory, setThirdCategory] = useState(user && user.category?.thirdCategory);
   const [resume, setResume] = useState(null);
   const [resumePreview, setResumePreview] = useState(user && user.resume?.url);
 
@@ -37,9 +37,9 @@ const UpdateProfile = () => {
     formData.append("phone", phone);
     formData.append("address", address);
     if (user && user.role === "Job Seeker") {
-      formData.append("firstNiche", firstNiche);
-      formData.append("secondNiche", secondNiche);
-      formData.append("thirdNiche", thirdNiche);
+      formData.append("firstCategory", firstCategory);
+      formData.append("secondCategory", secondCategory);
+      formData.append("thirdCategory", thirdCategory);
       formData.append("coverLetter", coverLetter);
     }
     if (resume) {
@@ -70,7 +70,7 @@ const UpdateProfile = () => {
     };
   };
 
-  const nichesArray = [
+  const CategoriesArray = [
     "Software Development",
     "Web Development",
     "Cybersecurity",
@@ -132,15 +132,15 @@ const UpdateProfile = () => {
       {user && user.role === "Job Seeker" && (
         <>
           <div>
-            <label>My Preferred Job Niches</label>
+            <label>My Preferred Job Categories</label>
             <div
               style={{ display: "flex", flexDirection: "column", gap: "15px" }}
             >
               <select
-                value={firstNiche}
-                onChange={(e) => setFirstNiche(e.target.value)}
+                value={firstCategory}
+                onChange={(e) => setFirstCategory(e.target.value)}
               >
-                {nichesArray.map((element, index) => {
+                {CategoriesArray.map((element, index) => {
                   return (
                     <option value={element} key={index}>
                       {element}
@@ -149,10 +149,10 @@ const UpdateProfile = () => {
                 })}
               </select>
               <select
-                value={secondNiche}
-                onChange={(e) => setSecondNiche(e.target.value)}
+                value={secondCategory}
+                onChange={(e) => setSecondCategory(e.target.value)}
               >
-                {nichesArray.map((element, index) => {
+                {CategoriesArray.map((element, index) => {
                   return (
                     <option value={element} key={index}>
                       {element}
@@ -161,10 +161,10 @@ const UpdateProfile = () => {
                 })}
               </select>
               <select
-                value={thirdNiche}
-                onChange={(e) => setThirdNiche(e.target.value)}
+                value={thirdCategory}
+                onChange={(e) => setThirdCategory(e.target.value)}
               >
-                {nichesArray.map((element, index) => {
+                {CategoriesArray.map((element, index) => {
                   return (
                     <option value={element} key={index}>
                       {element}

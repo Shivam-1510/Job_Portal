@@ -16,13 +16,13 @@ const Register = () => {
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [password, setPassword] = useState("");
-  const [firstNiche, setFirstNiche] = useState("");
-  const [secondNiche, setSecondNiche] = useState("");
-  const [thirdNiche, setThirdNiche] = useState("");
+  const [firstCategory, setFirstCategory] = useState("");
+  const [secondCategory, setSecondCategory] = useState("");
+  const [thirdCategory, setThirdCategory] = useState("");
   const [coverLetter, setCoverLetter] = useState("");
   const [resume, setResume] = useState("");
 
-  const nichesArray = [
+  const CategoriesArray = [
     "Software Development",
     "Web Development",
     "Cybersecurity",
@@ -67,9 +67,9 @@ const Register = () => {
     formData.append("address", address);
     formData.append("password", password);
     if (role === "Job Seeker") {
-      formData.append("firstNiche", firstNiche);
-      formData.append("secondNiche", secondNiche);
-      formData.append("thirdNiche", thirdNiche);
+      formData.append("firstCategory", firstCategory);
+      formData.append("secondCategory", secondCategory);
+      formData.append("thirdCategory", thirdCategory);
       formData.append("coverLetter", coverLetter);
       formData.append("resume", resume);
     }
@@ -181,14 +181,14 @@ const Register = () => {
                     <label>Your First prefrence</label>
                     <div>
                       <select
-                        value={firstNiche}
-                        onChange={(e) => setFirstNiche(e.target.value)}
+                        value={firstCategory}
+                        onChange={(e) => setFirstCategory(e.target.value)}
                       >
                         <option value="">Your Category</option>
-                        {nichesArray.map((niche, index) => {
+                        {CategoriesArray.map((category, index) => {
                           return (
-                            <option key={index} value={niche}>
-                              {niche}
+                            <option key={index} value={category}>
+                              {category}
                             </option>
                           );
                         })}
@@ -200,14 +200,14 @@ const Register = () => {
                     <label>Your Second Prefrence</label>
                     <div>
                       <select
-                        value={secondNiche}
-                        onChange={(e) => setSecondNiche(e.target.value)}
+                        value={secondCategory}
+                        onChange={(e) => setSecondCategory(e.target.value)}
                       >
                         <option value="">Your Category</option>
-                        {nichesArray.map((niche, index) => {
+                        {CategoriesArray.map((category, index) => {
                           return (
-                            <option key={index} value={niche}>
-                              {niche}
+                            <option key={index} value={category}>
+                              {category}
                             </option>
                           );
                         })}
@@ -219,14 +219,14 @@ const Register = () => {
                     <label>Your Third Prfrence</label>
                     <div>
                       <select
-                        value={thirdNiche}
-                        onChange={(e) => setThirdNiche(e.target.value)}
+                        value={thirdCategory}
+                        onChange={(e) => setThirdCategory(e.target.value)}
                       >
                         <option value="">Your Category</option>
-                        {nichesArray.map((niche, index) => {
+                        {CategoriesArray.map((category, index) => {
                           return (
-                            <option key={index} value={niche}>
-                              {niche}
+                            <option key={index} value={category}>
+                              {category}
                             </option>
                           );
                         })}

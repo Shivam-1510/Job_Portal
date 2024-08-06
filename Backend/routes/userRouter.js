@@ -12,7 +12,7 @@ router.post("/register", register);
 router.post("/login", login);
 router.get("/logout", isAuthenticated, logout);
 router.get("/getuser", isAuthenticated, getUser, );
-router.put("/update/profile", isAuthenticated, updateProfile)
+router.post('/update/profile', isAuthenticated, upload.single('resume'), updateProfile);
 router.put("/update/password", isAuthenticated, updatePassword)
 
 export default router;

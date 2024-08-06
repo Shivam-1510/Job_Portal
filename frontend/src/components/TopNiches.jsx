@@ -1,6 +1,6 @@
 import React from "react";
 
-const TopNiches = () => {
+const TopCategories = () => {
   const services = [
     {
       id: 1,
@@ -57,4 +57,4 @@ const TopNiches = () => {
   );
 };
 
-export default TopNiches;
+export default TopCategories;
