@@ -67,9 +67,9 @@ const Applications = () => {
                       {element.jobSeekerInfo.address}
                     </p>
                     <p className="sub-sec">
-                      <span>Applicant's CoverLetter: </span>
+                      <span>Applicant's CV: </span>
                       <textarea
-                        value={element.jobSeekerInfo.coverLetter}
+                        value={element.jobSeekerInfo.CV}
                         rows={5}
                         disabled
                       ></textarea>

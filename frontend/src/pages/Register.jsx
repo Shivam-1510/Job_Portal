@@ -19,7 +19,7 @@ const Register = () => {
   const [firstCategory, setFirstCategory] = useState("");
   const [secondCategory, setSecondCategory] = useState("");
   const [thirdCategory, setThirdCategory] = useState("");
-  const [coverLetter, setCoverLetter] = useState("");
+  const [CV, setCV] = useState("");
   const [resume, setResume] = useState("");
 
   const CategoriesArray = [
@@ -30,19 +30,7 @@ const Register = () => {
     "Artificial Intelligence",
     "Cloud Computing",
     "DevOps",
-    "Mobile App Development",
-    "Blockchain",
-    "Database Administration",
-    "Network Administration",
-    "UI/UX Design",
-    "Game Development",
-    "IoT (Internet of Things)",
-    "Big Data",
-    "Machine Learning",
-    "IT Project Management",
-    "IT Support and Helpdesk",
-    "Systems Administration",
-    "IT Consulting",
+
   ];
 
   const resumeHandler = (e) => {
@@ -70,7 +58,7 @@ const Register = () => {
       formData.append("firstCategory", firstCategory);
       formData.append("secondCategory", secondCategory);
       formData.append("thirdCategory", thirdCategory);
-      formData.append("coverLetter", coverLetter);
+      formData.append("CV", CV);
       formData.append("resume", resume);
     }
     dispatch(register(formData));
@@ -237,11 +225,11 @@ const Register = () => {
                 </div>
                 <div className="wrapper">
                   <div className="inputTag">
-                    <label>Coverletter</label>
+                    <label>CV</label>
                     <div>
                       <textarea
-                        value={coverLetter}
-                        onChange={(e) => setCoverLetter(e.target.value)}
+                        value={CV}
+                        onChange={(e) => setCV(e.target.value)}
                         rows={10}
                       />
                     </div>

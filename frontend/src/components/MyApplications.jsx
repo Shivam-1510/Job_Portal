@@ -69,9 +69,9 @@ const MyApplications = () => {
                       <span>Address: </span> {element.jobSeekerInfo.address}
                     </p>
                     <p className="sub-sec">
-                      <span>Coverletter: </span>
+                      <span>CV: </span>
                       <textarea
-                        value={element.jobSeekerInfo.coverLetter}
+                        value={element.jobSeekerInfo.CV}
                         rows={5}
                         disabled
                       ></textarea>

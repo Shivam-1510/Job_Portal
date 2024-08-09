@@ -21,7 +21,7 @@ const UpdateProfile = () => {
   const [email, setEmail] = useState(user && user.email);
   const [phone, setPhone] = useState(user && user.phone);
   const [address, setAddress] = useState(user && user.address);
-  const [coverLetter, setCoverLetter] = useState(user && user.coverLetter);
+  const [CV, setCV] = useState(user && user.CV);
   const [firstCategory, setFirstCategory] = useState(user && user.category?.firstCategory);
   const [secondCategory, setSecondCategory] = useState(
     user && user.category?.secondCategory
@@ -40,7 +40,7 @@ const UpdateProfile = () => {
       formData.append("firstCategory", firstCategory);
       formData.append("secondCategory", secondCategory);
       formData.append("thirdCategory", thirdCategory);
-      formData.append("coverLetter", coverLetter);
+      formData.append("CV", CV);
     }
     if (resume) {
       formData.append("resume", resume);
@@ -78,19 +78,6 @@ const UpdateProfile = () => {
     "Artificial Intelligence",
     "Cloud Computing",
     "DevOps",
-    "Mobile App Development",
-    "Blockchain",
-    "Database Administration",
-    "Network Administration",
-    "UI/UX Design",
-    "Game Development",
-    "IoT (Internet of Things)",
-    "Big Data",
-    "Machine Learning",
-    "IT Project Management",
-    "IT Support and Helpdesk",
-    "Systems Administration",
-    "IT Consulting",
   ];
 
   return (
@@ -175,10 +162,10 @@ const UpdateProfile = () => {
             </div>
           </div>
           <div>
-            <label>Coverletter</label>
+            <label>CV</label>
             <textarea
-              value={coverLetter}
-              onChange={(e) => setCoverLetter(e.target.value)}
+              value={CV}
+              onChange={(e) => setCV(e.target.value)}
               rows={5}
             />
           </div>

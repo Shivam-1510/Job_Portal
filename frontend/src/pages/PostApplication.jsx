@@ -25,7 +25,7 @@ const PostApplication = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
-  const [coverLetter, setCoverLetter] = useState("");
+  const [CV, setCV] = useState("");
   const [resume, setResume] = useState("");
 
   const navigateTo = useNavigate();
@@ -38,7 +38,7 @@ const PostApplication = () => {
     formData.append("email", email);
     formData.append("phone", phone);
     formData.append("address", address);
-    formData.append("coverLetter", coverLetter);
+    formData.append("CV", CV);
     if (resume) {
       formData.append("resume", resume);
     }
@@ -51,7 +51,7 @@ const PostApplication = () => {
       setEmail(user.email || "");
       setPhone(user.phone || "");
       setAddress(user.address || "");
-      setCoverLetter(user.coverLetter || "");
+      setCV(user.CV || "");
       setResume((user.resume && user.resume.url) || "");
     }
     if (error) {
@@ -127,10 +127,10 @@ const PostApplication = () => {
           {user && user.role === "Job Seeker" && (
             <>
               <div>
-                <label>Coverletter</label>
+                <label>CV</label>
                 <textarea
-                  value={coverLetter}
-                  onChange={(e) => setCoverLetter(e.target.value)}
+                  value={CV}
+                  onChange={(e) => setCV(e.target.value)}
                   rows={10}
                 />
               </div>
