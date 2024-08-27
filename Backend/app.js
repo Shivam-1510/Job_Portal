@@ -9,6 +9,7 @@ import jobRouter from "./routes/jobRouter.js";
 import applicationRouter from "./routes/applicationRouter.js";
 import { v2 as cloudinary } from 'cloudinary';
 import {newsLetterCron} from "./automation/newsLetterCron.js";
+import path from 'path';
 
 
 const app = express();
@@ -27,6 +28,7 @@ app.use(
     credentials: true,
   })
 );
+const __dirname = path.resolve();
 
 app.use(cookieParser());
 app.use(express.json());
@@ -45,9 +47,15 @@ app.use((err, req, res, next) => {
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/job", jobRouter);
 app.use("/api/v1/application", applicationRouter);
+app.use(express.static(path.join(__dirname, '/client/dist')));
+app.get('*', (req,res) => {
+  res.sendFile(path.join(__dirname,'client','dist','index.html'));
+});
+
 newsLetterCron();
 connection();
 app.use(errorMiddleware);
+
 
 
 export default app;
