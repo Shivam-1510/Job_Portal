@@ -1,5 +1,5 @@
 {
-  "name": "backend",
+  "name": "job_portal_backend",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
@@ -10,7 +10,6 @@
   },
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "bcrypt": "^5.1.1",
     "cloudinary": "^2.4.0",
@@ -29,5 +28,6 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.4"
-  }
+  },
+  "description": ""
 }
